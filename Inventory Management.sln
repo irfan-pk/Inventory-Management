@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory Management", "Inventory Management\Inventory Management.csproj", "{DE00AA28-9E08-4D35-A7A8-96297DBC9350}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IMS_Setup", "IMS_Setup\IMS_Setup.vdproj", "{2A334D88-FCED-482B-A166-B2C0D969C3B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE00AA28-9E08-4D35-A7A8-96297DBC9350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE00AA28-9E08-4D35-A7A8-96297DBC9350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE00AA28-9E08-4D35-A7A8-96297DBC9350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE00AA28-9E08-4D35-A7A8-96297DBC9350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A334D88-FCED-482B-A166-B2C0D969C3B8}.Debug|Any CPU.ActiveCfg = Debug
+		{2A334D88-FCED-482B-A166-B2C0D969C3B8}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFBC392A-B19F-48E7-B846-AEA648538528}
+	EndGlobalSection
+EndGlobal
