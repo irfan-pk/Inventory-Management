@@ -10,6 +10,7 @@ namespace Inventory_Management
 {
     class Retrieve
     {
+        
         public void showStaff(DataGridView gv, DataGridViewColumn staffidGV, DataGridViewColumn fnameGV, DataGridViewColumn lnameGV, DataGridViewColumn unameGV, DataGridViewColumn passGV, DataGridViewColumn conctGV, DataGridViewColumn addrsGV, DataGridViewColumn typeidGV, DataGridViewColumn roleidGV, DataGridViewColumn locidGV, DataGridViewColumn secidGV, DataGridViewColumn manidGV, DataGridViewColumn statGV, string data = null)
         {
             try
@@ -244,7 +245,7 @@ namespace Inventory_Management
             }
         }
 
-        public void showSections(DataGridView gv, DataGridViewColumn typeIdGV, DataGridViewColumn descGV)
+        public void showSections(DataGridView gv, DataGridViewColumn secIdGV, DataGridViewColumn descGV)
         {
             try
             {
@@ -255,7 +256,7 @@ namespace Inventory_Management
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 // bound the gridview columns
-                typeIdGV.DataPropertyName = dt.Columns["ID"].ToString();
+                secIdGV.DataPropertyName = dt.Columns["ID"].ToString();
                 descGV.DataPropertyName = dt.Columns["SecDesc"].ToString();
                 // bound gridview data source
                 gv.DataSource = dt;
@@ -521,6 +522,7 @@ namespace Inventory_Management
         public static string gblStatus { get; private set; }
         public static int staff_id { get; private set; }
         public static string staff_name { get; private set; }
+        public static string user { get; private set; }
         public static int staff_type_id { get; private set; }
         public static int staff_section_id { get; private set; }
         public static int staff_role_id { get; private set; }
@@ -590,6 +592,7 @@ namespace Inventory_Management
                         staff_mang_id = Convert.ToInt32(dr["mangid"].ToString());
                         staff_name = dr["Name"].ToString() + " " + dr["LName"].ToString();
                         user_name = dr["username"].ToString();
+                        user = dr["Name"].ToString();
                         pass_word = dr["password"].ToString();
                         staff_status = dr["password"].ToString();
                     }

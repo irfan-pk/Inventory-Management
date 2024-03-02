@@ -39,8 +39,9 @@ namespace Inventory_Management
         public override void btnAdd_Click(object sender, EventArgs e)
         {
             MainClass.enable(leftPanel);
+            cbIndentTo.Items.Clear();
             dgvShowData.Enabled = true;
-            if (edit == 0) { btnRefresh_Click(sender, e); lblInvoiceNo.Text = MainClass.GenerateSeqID("SALE_ID", "SALE_MASTER").ToString(); }
+            if (edit == 0) { lblInvoiceNo.Text = MainClass.GenerateSeqID("SALE_ID", "SALE_MASTER").ToString(); }
             lblIndentFrom.Text = getComboBoxData("st_getRequiredSectionByParam", Retrieve.staff_section_id);
             SqlCommand fillCmd = new SqlCommand("select * from invoice_roles where userid = " + Retrieve.staff_id, MainClass.DBConn);
             fillCmd.CommandType = CommandType.Text;
@@ -94,7 +95,7 @@ namespace Inventory_Management
             {
                     if (prodcd != prodArray[1]) { getItemBalance(); }
                     currentQty = Convert.ToInt32(textQty.Text.Trim());
-                    if (qtyBalance > currentQty)
+                    if (qtyBalance >= currentQty)
                     {
                         if (dgvShowData.Rows.Count > 0)
                         {
@@ -162,8 +163,8 @@ namespace Inventory_Management
                         Insertion i = new Insertion();
                         Updation u = new Updation();
                         Retrieve r = new Retrieve();
-                        if (edit == 0) { i.insertSaleInvoice(Convert.ToInt64(lblInvoiceNo.Text.ToString()), dtpInvoiceDate.Value, lblIndentFrom.Text, cbIndentTo.SelectedItem.ToString(), lblUser.Text); }
-                        if (edit == 1) { u.updateSaleInvoice(Convert.ToInt64(lblInvoiceNo.Text.ToString()), dtpInvoiceDate.Value, lblIndentFrom.Text, cbIndentTo.SelectedItem.ToString(), lblUser.Text); }
+                        if (edit == 0) { i.insertSaleInvoice(Convert.ToInt64(lblInvoiceNo.Text.ToString()), dtpInvoiceDate.Value, lblIndentFrom.Text, cbIndentTo.SelectedItem.ToString(), Retrieve.user ); }
+                        if (edit == 1) { u.updateSaleInvoice(Convert.ToInt64(lblInvoiceNo.Text.ToString()), dtpInvoiceDate.Value, lblIndentFrom.Text, cbIndentTo.SelectedItem.ToString(), Retrieve.user); }
                         foreach (DataGridViewRow row in dgvShowData.Rows)
                         {
                             //DateTime oDate = DateTime.Parse(dtpInvoiceDate.Value.ToString());
@@ -294,6 +295,8 @@ namespace Inventory_Management
         }
         private void getItemBalance()
         {
+            int qty1 = 0; 
+            int qty2 = 0;
             SqlCommand cmd = new SqlCommand("select product_quantity from products where product_code = N'" + textItemCode.Text.Trim() + "'", MainClass.DBConn);
             cmd.CommandType = CommandType.Text;
             cmd.CommandTimeout = 0;
@@ -303,7 +306,7 @@ namespace Inventory_Management
             {
                 while (dr.Read())
                 {
-                    qtyBalance = Convert.ToInt32(dr["product_quantity"].ToString());
+                    qty1 = Convert.ToInt32(dr["product_quantity"].ToString());
                 }
             }
             MainClass.DBConn.Close();
@@ -319,10 +322,11 @@ namespace Inventory_Management
                 {
                     if (dr2[0] != System.DBNull.Value)
                     {
-                        qtyBalance -= dr2.GetInt32(0);
+                        qty2 = dr2.GetInt32(0);
                     }
                 }
             }
+            qtyBalance = qty1 - qty2;
             MainClass.DBConn.Close();
         }
         public override void btnView_Click(object sender, EventArgs e)
@@ -405,6 +409,8 @@ namespace Inventory_Management
             btnDelete.Enabled = false;
             dgvShowData.Enabled = false;
             MainClass.disable(leftPanel);
+            lblInvoiceNo.Text = "0";
+            edit = 0;
         }
 
         public override void btnEdit_Click(object sender, EventArgs e)

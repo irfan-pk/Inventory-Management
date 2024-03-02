@@ -99,7 +99,7 @@ namespace Inventory_Management
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dgvShowData.Rows[e.RowIndex];
-                secID = Convert.ToInt32(row.Cells["typeIdGV"].Value.ToString());
+                secID = Convert.ToInt32(row.Cells["secIdGV"].Value.ToString());
                 textDescription.Text = row.Cells["descGV"].Value.ToString();
                 MainClass.disable(leftPanel);
                 edit = 1;

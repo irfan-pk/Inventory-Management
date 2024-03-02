@@ -22,6 +22,7 @@ namespace Inventory_Management
         public static Int64 gblInvoice { get; set; }
         public static DateTime gblFromDate { get; set; }
         public static DateTime gblToDate { get; set; }
+        public static string gblUser { get; set; }
         public static Int64 gblIndentNo
         {
             get { return gblInvoice; }

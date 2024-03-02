@@ -155,7 +155,7 @@ namespace Inventory_Management
                     int count = 0;
                     Insertion i = new Insertion();
                     Int64 pid = MainClass.GenerateSeqID("pi_id", "purchaseinvoice");
-                    purchaseInvId = i.insertPurchaseInvoice(pid, cbSupplier.Text.Trim(), dtpInvoiceDate.Value, lblUser.Text);
+                    purchaseInvId = i.insertPurchaseInvoice(pid, cbSupplier.Text.Trim(), dtpInvoiceDate.Value, Retrieve.user);
                     foreach (DataGridViewRow row in dgvShowData.Rows)
                     {
                         //int qty;

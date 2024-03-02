@@ -33,11 +33,11 @@ namespace Inventory_Management
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvShowData = new System.Windows.Forms.DataGridView();
+            this.secIdGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDescription = new System.Windows.Forms.TextBox();
             this.lbldesc = new System.Windows.Forms.Label();
             this.lbldescError = new System.Windows.Forms.Label();
-            this.secIdGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -105,6 +105,23 @@ namespace Inventory_Management
             this.dgvShowData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowData.Size = new System.Drawing.Size(673, 364);
             this.dgvShowData.TabIndex = 8;
+            this.dgvShowData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowData_CellClick);
+            // 
+            // secIdGV
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.secIdGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.secIdGV.HeaderText = "Type ID";
+            this.secIdGV.Name = "secIdGV";
+            this.secIdGV.ReadOnly = true;
+            // 
+            // descGV
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.descGV.DefaultCellStyle = dataGridViewCellStyle3;
+            this.descGV.HeaderText = "Description";
+            this.descGV.Name = "descGV";
+            this.descGV.ReadOnly = true;
             // 
             // textDescription
             // 
@@ -134,22 +151,6 @@ namespace Inventory_Management
             this.lbldescError.Text = "*";
             this.lbldescError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbldescError.Visible = false;
-            // 
-            // secIdGV
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.secIdGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.secIdGV.HeaderText = "Type ID";
-            this.secIdGV.Name = "secIdGV";
-            this.secIdGV.ReadOnly = true;
-            // 
-            // descGV
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.descGV.DefaultCellStyle = dataGridViewCellStyle3;
-            this.descGV.HeaderText = "Description";
-            this.descGV.Name = "descGV";
-            this.descGV.ReadOnly = true;
             // 
             // Sections
             // 
