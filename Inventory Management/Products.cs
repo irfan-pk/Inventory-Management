@@ -32,6 +32,7 @@ namespace Inventory_Management
             edit = 0;
             cbCategory.Items.Clear();
             r.populateComboBoxList("st_getcatgList", cbCategory,"Category", "ID");
+            textCode.Focus();
         }
 
         public override void btnEdit_Click(object sender, EventArgs e)

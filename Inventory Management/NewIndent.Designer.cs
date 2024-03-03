@@ -202,9 +202,9 @@ namespace Inventory_Management
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(13, 309);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 15);
+            this.label12.Size = new System.Drawing.Size(107, 15);
             this.label12.TabIndex = 8;
-            this.label12.Text = "Item Code";
+            this.label12.Text = "Item Code (F2 List)";
             // 
             // textItemCode
             // 
